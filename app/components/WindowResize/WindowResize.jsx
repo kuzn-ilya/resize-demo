@@ -1,21 +1,29 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-export default class WindowResize extends React.Component {
+export class WindowResize extends React.Component {
     constructor(props) {
         super(props);
+        this.handleResize = this.handleResize.bind(this);
+    }
+
+    handleResize(e) {
+        if (this.props.onResize) {
+            this.props.onResize(e);
+        }
     }
 
     componentDidMount() {
-        console.log('componentDidMount');
+        window.addEventListener('resize', this.handleResize);
     }
 
     componentWillUnmount() {
-        console.log('componentWillUnmount');
+        window.removeEventListener('resize', this.handleResize);
     }
 
     render() {
         return (
-            <div>Hello World</div>
+            <div>{this.props.children}</div>
         );
     }
 }
