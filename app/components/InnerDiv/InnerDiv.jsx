@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const InnerDiv = ({height, children, id}) => (
+export const InnerDiv = ({children, id}) => (
     <div 
         style={{
             display: 'inline-block',
@@ -10,7 +10,7 @@ export const InnerDiv = ({height, children, id}) => (
             left: 0,
             top: 0,
             width: '100%',
-            height: height
+            height: '100%'
         }}
         id={id}
     >

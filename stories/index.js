@@ -9,26 +9,17 @@ import { linkTo } from '@storybook/addon-links';
 import { WindowResize } from '../app/components/WindowResize';
 import { IFrameResize } from '../app/components/IFrameResize';
 import { ResizeObserve } from '../app/components/ResizeObserve';
+import { OnScrollExpand } from '../app/components/OnScrollExpand';
+import { OnScrollShrink } from '../app/components/OnScrollShrink';
 
 class WrapComponent extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      height: '100%'
-    };
-    this.handleRandomHeight = this.handleRandomHeight.bind(this);
-  }
-
-  handleRandomHeight() {
-    this.setState({
-      height: (Math.random() * 100).toString() + '%'
-    });
   }
 
   render() {
     const {Component} = {...this.props}
-    return <Component {...this.props} height={this.state.height}>
-      <button style={{position: 'absolute', right: 0, top: 0}} onClick={this.handleRandomHeight}>Random Height</button>
+    return <Component {...this.props} >
       {this.props.children}
     </Component>
   }
@@ -42,3 +33,9 @@ storiesOf('IFrameResize', module)
 
 storiesOf('ResizeObserver', module)
   .add('default', () => <WrapComponent Component={ResizeObserve} onResize={action('resize')}>ResizeObserver</WrapComponent>);
+
+storiesOf('OnScrollExpand', module)
+  .add('default', () => <WrapComponent Component={OnScrollExpand} onResize={action('resize')}>OnScrollExpand</WrapComponent>);
+
+storiesOf('OnScrollShrink', module)
+  .add('default', () => <WrapComponent Component={OnScrollShrink} onResize={action('resize')}>OnScrollShrink</WrapComponent>);

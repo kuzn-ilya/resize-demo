@@ -25,7 +25,7 @@ export class WindowResize extends React.Component {
     render() {
         const {height} = this.props;
         return (
-            <InnerDiv height={height}>{this.props.children}</InnerDiv>
+            <InnerDiv>{this.props.children}</InnerDiv>
         );
     }
 }
