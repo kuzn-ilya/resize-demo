@@ -23,9 +23,6 @@ export class OnScrollShrink extends React.PureComponent {
     }
 
     reset() {
-        this.sensorChild.style.width = '100000px';
-        this.sensorChild.style.height = '100000px';
-
         this.sensor.scrollLeft = 100000;
         this.sensor.scrollTop = 100000;
     }
@@ -53,7 +50,9 @@ export class OnScrollShrink extends React.PureComponent {
                             position: 'absolute',
                             left: 0,
                             top: 0,
-                            transition: '0s'                        
+                            transition: '0s',
+                            width: '200%',
+                            height: '200%'
                         }}
                         ref={(ref) => this.sensorChild = ref}
                     >    

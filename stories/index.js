@@ -1,6 +1,6 @@
 // https://stackoverflow.com/questions/6492683/how-to-detect-divs-dimension-changed
-//chrome://flags/#enable-experimental-web-platform-features
-
+// chrome://flags/#enable-experimental-web-platform-features
+// https://github.com/marcj/css-element-queries
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
@@ -11,6 +11,7 @@ import { IFrameResize } from '../app/components/IFrameResize';
 import { ResizeObserve } from '../app/components/ResizeObserve';
 import { OnScrollExpand } from '../app/components/OnScrollExpand';
 import { OnScrollShrink } from '../app/components/OnScrollShrink';
+import { ResizeSensor } from '../app/components/ResizeSensor';
 
 class WrapComponent extends React.PureComponent {
   constructor(props) {
@@ -39,3 +40,6 @@ storiesOf('OnScrollExpand', module)
 
 storiesOf('OnScrollShrink', module)
   .add('default', () => <WrapComponent Component={OnScrollShrink} onResize={action('resize')}>OnScrollShrink</WrapComponent>);
+
+storiesOf('ResizeSensor', module)
+  .add('default', () => <WrapComponent Component={ResizeSensor} onResize={action('resize')}>ResizeSensor</WrapComponent>);
