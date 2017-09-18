@@ -1,4 +1,5 @@
 import React from 'react';
+import { InnerDiv } from '../InnerDiv';
 
 export class IFrameResize extends React.PureComponent {
     constructor(props) {
@@ -21,10 +22,10 @@ export class IFrameResize extends React.PureComponent {
     }
 
     render() {
-        const {onResize, children} = this.props;
+        const {onResize, children, height} = this.props;
         return (
-            <div style={{position: 'relative', backgroundColor: 'yellow'}}>
-                {children}
+            <InnerDiv height={height}>
+                {this.props.children}
                 <iframe 
                     style={{
                         width: '100%',
@@ -32,11 +33,12 @@ export class IFrameResize extends React.PureComponent {
                         position: 'absolute',
                         border: 'none',
                         backgroundColor: 'transparent',
-                        allowtransparency: true
+                        allowtransparency: true,
+                        zIndex: -1
                     }}
                     ref={(ref) => this.ref = ref}
                 />
-            </div>
+            </InnerDiv>
         );
     }
 };

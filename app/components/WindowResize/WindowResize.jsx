@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { InnerDiv } from '../InnerDiv';
 
 export class WindowResize extends React.Component {
     constructor(props) {
@@ -22,8 +23,9 @@ export class WindowResize extends React.Component {
     }
 
     render() {
+        const {height} = this.props;
         return (
-            <div>{this.props.children}</div>
+            <InnerDiv height={height}>{this.props.children}</InnerDiv>
         );
     }
 }
