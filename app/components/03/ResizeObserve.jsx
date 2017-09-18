@@ -8,9 +8,9 @@ export class ResizeObserve extends React.Component {
         this.handleResize = this.handleResize.bind(this);
     }
 
-    handleResize() {
+    handleResize(e) {
         if (this.props.onResize) {
-            this.props.onResize();
+            this.props.onResize(e);
         }
     }
 
@@ -18,7 +18,7 @@ export class ResizeObserve extends React.Component {
         var ro = new ResizeObserver( entries => {
             for (let entry of entries) {
               if (entry.target.id === 'observable')
-                  this.handleResize();
+                  this.handleResize(entry);
             }
     
         });

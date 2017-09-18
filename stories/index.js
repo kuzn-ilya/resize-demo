@@ -6,12 +6,12 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
-import { WindowResize } from '../app/components/WindowResize';
-import { IFrameResize } from '../app/components/IFrameResize';
-import { ResizeObserve } from '../app/components/ResizeObserve';
-import { OnScrollExpand } from '../app/components/OnScrollExpand';
-import { OnScrollShrink } from '../app/components/OnScrollShrink';
-import { ResizeSensor } from '../app/components/ResizeSensor';
+import { WindowResize } from '../app/components/01';
+import { IFrameResize } from '../app/components/02';
+import { ResizeObserve } from '../app/components/03';
+import { OnScrollExpand } from '../app/components/04';
+import { OnScrollShrink } from '../app/components/05';
+import { ResizeSensor } from '../app/components/06';
 
 class WrapComponent extends React.PureComponent {
   constructor(props) {
@@ -26,20 +26,10 @@ class WrapComponent extends React.PureComponent {
   }
 }
 
-storiesOf('WindowResize', module)
-  .add('default', () => <WrapComponent Component={WindowResize} onResize={action('resize')}>Window Resize</WrapComponent>);
-
-storiesOf('IFrameResize', module)
-  .add('default', () => <WrapComponent Component={IFrameResize} onResize={action('resize')}>IFrame Resize</WrapComponent>);
-
-storiesOf('ResizeObserver', module)
-  .add('default', () => <WrapComponent Component={ResizeObserve} onResize={action('resize')}>ResizeObserver</WrapComponent>);
-
-storiesOf('OnScrollExpand', module)
-  .add('default', () => <WrapComponent Component={OnScrollExpand} onResize={action('resize')}>OnScrollExpand</WrapComponent>);
-
-storiesOf('OnScrollShrink', module)
-  .add('default', () => <WrapComponent Component={OnScrollShrink} onResize={action('resize')}>OnScrollShrink</WrapComponent>);
-
-storiesOf('ResizeSensor', module)
-  .add('default', () => <WrapComponent Component={ResizeSensor} onResize={action('resize')}>ResizeSensor</WrapComponent>);
+storiesOf('OnResize', module)
+  .add('01', () => <WrapComponent Component={WindowResize} onResize={action('resize')}>Window Resize</WrapComponent>)
+  .add('02', () => <WrapComponent Component={IFrameResize} onResize={action('resize')}>IFrame Resize</WrapComponent>)
+  .add('03', () => <WrapComponent Component={ResizeObserve} onResize={action('resize')}>ResizeObserver</WrapComponent>)
+  .add('04', () => <WrapComponent Component={OnScrollExpand} onResize={action('resize')}>OnScrollExpand</WrapComponent>)
+  .add('05', () => <WrapComponent Component={OnScrollShrink} onResize={action('resize')}>OnScrollShrink</WrapComponent>)
+  .add('06', () => <WrapComponent Component={ResizeSensor} onResize={action('resize')}>ResizeSensor</WrapComponent>);
